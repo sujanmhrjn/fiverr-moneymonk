@@ -960,6 +960,7 @@
                 border:1px solid #dedede;
                 outline:none;
                 padding:0 15px;
+                -webkit-appearance:none;
             }
             .form-inline{
                 display:inline-flex;
@@ -1039,6 +1040,11 @@
                 width:100%;
             }
 
+            .section-banner .banner-image{
+                height: 300px;
+                overflow: hidden;
+            }
+
             @media (min-width: 992px){
                 .section-banner .section-header{
                     text-align:left;
@@ -1053,6 +1059,10 @@
                     margin-bottom:-380px;
                     position: relative;
                     z-index: 99;
+                }
+                .section-banner .banner-image{
+                    height: 550px;
+                    overflow: hidden;
                 }
             }
 
@@ -1435,7 +1445,7 @@
                     </div>
                 </div>
             </div>
-            <div style="overflow: hidden; height:500px">
+            <div  class="banner-image">
                 <amp-img alt="Banner"
                     src="/images/bg-main.jpg"
                     width="555"
