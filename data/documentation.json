@@ -1,0 +1,22 @@
+{
+    "items":[
+        {
+            "title":"Identity Proof",
+            "description":"Aadhar Card, Pan Card, Voter ID, Passport,Driving License."
+          
+        },
+        {
+            "title":"Address Proof",
+            "description": "Driving  License, Voter ID, Electricity bill, Credit Card / bank statement, Rent agreement."
+        },
+        {
+            "title":"Income Proof",
+            "description": "Latest 6 months bank statements, latest 6 months pay slips, and form 16, latest 2-year ITR."
+        }
+        ,
+        {
+            "title":"Property Documents",
+            "description": "All past chain agreements, society letter, property tax bill"
+        }
+    ]
+}

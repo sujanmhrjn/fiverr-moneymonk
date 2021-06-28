@@ -1,0 +1,38 @@
+{
+    "items":[
+        {
+            "name":"Low  Rate of Interest",
+            "image":"../images/icon-low-interest-rate.png"
+        },
+        {
+            "name":"Quick Processing",
+            "image":"../images/icon-processing.png"
+        },
+        {
+            "name":"Instant Approvals",
+            "image":"../images/icon-instant-approve.png"
+        },
+        {
+            "name":"No Hidden Charges",
+            "image":"../images/icon-no-hidden-cost.png"
+        }
+        ,
+        {
+            "name":"Multiple Quotes from Top Banks/NBFC",
+            "image":"../images/icon-bank.png"
+        },
+        {
+            "name":"Pre-Payment & Foreclosure Facility",
+            "image":"../images/icon-pre-payment.png"
+        },
+        {
+            "name":"Balance Transfer with Rs. 0 Fees",
+            "image":"../images/icon-transfer.png"
+        },
+        {
+            "name":"Pradhan Mantri Awas Yojana Subsidy",
+            "image":"../images/icon-pm-awas.png"
+        }
+    ]
+    
+}

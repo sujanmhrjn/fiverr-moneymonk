@@ -1,0 +1,38 @@
+{
+    "items":[
+            {
+                "name":"HDFC Ltd (Housing Development Finance Corporation)",
+                "image":"../images/banks/icon-hdfc.jpg"
+            },
+            {
+                "name":"State Bank Of India",
+                "image":"../images/banks/icon-sbi.jpg"
+            },
+            {
+                "name":"ICICI Bank India",
+                "image":"../images/banks/icon-icici.jpg"
+            },
+            {
+                "name":"Punjab National Bank",
+                "image":"../images/banks/icon-punjab.jpg"
+            }
+            ,
+            {
+                "name":"Axis Bank",
+                "image":"../images/banks/icon-axis.jpg"
+            },
+            {
+                "name":"Kotak Bank",
+                "image":"../images/banks/icon-kotak.jpg"
+            },
+            {
+                "name":"CITI Bank",
+                "image":"../images/banks/icon-citi.jpg"
+            },
+            {
+                "name":"LIC Housing Finance",
+                "image":"../images/banks/icon-lic.jpg"
+            }
+        ]
+    
+}
