@@ -1,4 +1,4 @@
-/* === colors === */
+ /* === colors === */
             /* primary color = #4EC3B9
                 text color = #6D6D6D
             */
@@ -956,13 +956,14 @@
                     padding-left:40px;
                 }
                 .section-banner .form{
-                    margin-bottom:-380px;
+                    margin-bottom:-450px;
                     position: relative;
                     z-index: 99;
                 }
                 .section-banner .banner-image{
                     height: 400px;
                     overflow: hidden;
+                    margin-bottom:20px;
                 }
             }
 
