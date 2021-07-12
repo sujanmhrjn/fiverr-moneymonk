@@ -906,7 +906,19 @@
                 background-color:#4EC3B9;
                 color:#fff;
             }
-
+            .form-submit-success,
+            .form-submit-error{
+                padding: 10px 15px;
+                border-radius: 4px;
+                font-size:12px;
+                color:#fff;
+            }
+            .form-submit-success{
+                background-color:#4EC3B9;
+            }
+            .form-submit-error{
+                background-color:rgb(199, 74, 74);
+            }
             /* === amp img === */
             amp-img img{
                 object-fit:cover;
