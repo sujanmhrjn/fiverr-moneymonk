@@ -1060,7 +1060,22 @@
                 background-color:#4EC3B9;
                 color:#fff;
             }
-
+            .label-float{
+                position:absolute;
+                top:-10px;
+                left:15px;
+                font-size:12px;
+                background:#fff;
+                transition:all 0.4s;
+            }
+            /* .form-control:empty + .label-float{
+                top:7px;
+            }
+            .form-control:focus + .label-float,
+            .form-control:valid + .label-float,
+            .form-control:not(:empty) + .label-float{
+                top:-10px;
+            } */
             /* === amp img === */
             amp-img img{
                 object-fit:cover;
@@ -1070,6 +1085,7 @@
             .section-banner .section-header::after{
                 display:none
             }
+            
             .section-banner .section-text{
                 margin-bottom:30px;
             }
@@ -1101,9 +1117,13 @@
             }
 
             @media (min-width: 992px){
+                .section-banner{
+                    padding-top:16px;
+                }
                 .section-banner .section-header{
                     text-align:left;
                     font-size:34px;
+                    margin-top:40px;
                 }
                 .section-banner .section-text{
                     font-size:16px;
@@ -1111,7 +1131,7 @@
                     padding-left:40px;
                 }
                 .section-banner .form{
-                    margin-bottom:-450px;
+                    margin-bottom:-350px;
                     position: relative;
                     z-index: 99;
                 }
@@ -1437,29 +1457,30 @@
                             <script type="application/json">
                                {
                                  "propertyFinalized": "",
-                                 "occupation":""
+                                 "occupation":"1"
                                 }
                             </script>
                          </amp-state>
                          <form  method="post" class="form" action-xhr="/"  id="form" target="_top" custom-validation-reporting="show-all-on-submit"  on="submit-success:form.clear">
                             <div class="form-group">
                                 <select class="form-control" name="occupation" id="nsOccupation" on="change:AMP.setState({formState: {occupation: event.value}})" required>
-                                    <option value="" selected hidden>Occupation</option>
-                                    <option value="1">Salaried</option>
+                                    <option value="1" selected>Salaried</option>
                                     <option value="60">Business Owner</option>
                                     <option value="61">CA / CS</option>
                                     <option value="62">Doctor</option>
                                 </select>
-                                <span class="form-error" visible-when-invalid="valueMissing" validation-for="loanAmount">Select a Occupation Type</span>
+                                <label class="label-float">Occupation</label>
+                                <span class="form-error" visible-when-invalid="valueMissing" validation-for="nsOccupation">Select Occupation</span>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="loanAmount"  name="loanAmount" placeholder="Loan Amount"  maxlength="10" required  pattern="\d+"/>
+                                <input type="text" class="form-control" id="loanAmount"  name="loanAmount"  maxlength="10" required  pattern="\d+"/>
+                                <label class="label-float">Loan Amount</label>
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="loanAmount">Enter a loan amount</span>
                                 <span class="form-error" visible-when-invalid="patternMismatch" validation-for="loanAmount">Enter numbers only</span>
                             </div>
-                            <div class="form-group d-none" [class]="formState.occupation == '1'?'form-group d-block':'form-group d-none'">
-                                <select name="nsSalaryAccount" class="form-control" id="nsSalaryAccount" required>
-                                    <option value="" selected hidden>Salary Account</option>
+                            <div class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-none':'form-group d-block'">
+                                <select name="nsSalaryAccount" class="form-control" id="nsSalaryAccount" [required]="formState.occupation == '1'?'true':'false'">
+                                    <option selected hidden></option>   
                                     <option value="HDFC">HDFC</option>
                                     <option value="SBI">SBI</option>
                                     <option value="AXIS">AXIS</option>
@@ -1468,22 +1489,25 @@
                                     <option value="CASH">CASH</option>
                                     <option value="CHEQUE">CHEQUE</option>          
                                 </select>
+                                <label class="label-float">Salary Account</label>
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="nsSalaryAccount">Select Salary Account</span>
                         
                             </div>
-                            <div  class="form-group d-none" [class]="formState.occupation == '1'?'form-group d-block':'form-group d-none'">
-                                <input type="text" class="form-control"  id="monthlyIncome" name="monthlyIncome" placeholder="Net Monthly Income"  maxlength="10" required  pattern="\d+"/>
+                            <div  class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-none':'form-group d-block'">
+                                <input type="text" class="form-control"  id="monthlyIncome" name="monthlyIncome"   maxlength="10"   pattern="\d+" [required]="formState.occupation == '1'?'true':'false'"/>
+                                <label class="label-float">Net Monthly Income</label>
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="monthlyIncome">Enter monthly income</span>
                                 <span class="form-error" visible-when-invalid="patternMismatch" validation-for="monthlyIncome">Enter numbers only</span>
                             </div>
-                            <div  class="form-group d-none" [class]="formState.occupation == '1'?'form-group d-block':'form-group d-none'">
-                                <input type="text" class="form-control"  id="companyName" name="companyName" placeholder="Company Name"  maxlength="10" required  pattern="\d+"/>
+                            <div  class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-none':'form-group d-block'">
+                                <input type="text" class="form-control"  id="companyName" name="companyName" maxlength="10"  [required]="formState.occupation == '1'?'true':'false'"/>
+                                <label class="label-float">Company Name</label>
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="companyName">Enter Company name</span>
                             
                             </div>
-                            <div  class="form-group d-none" [class]="formState.occupation == '1'?'form-group d-block':'form-group d-none'">
-                                <select name="organizationCategory" class="form-control" id="organizationCategory" required>
-                                    <option value="" selected hidden>Organization Category</option>
+                            <div  class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-none':'form-group d-block'">
+                                <select name="organizationCategory" class="form-control" id="organizationCategory" [required]="formState.occupation == '1'?'true':'false'">
+                                    <option value="" selected hidden></option>
                         
                                     <option value="4">Public Ltd</option>
                                     <option value="5">Private Ltd</option>
@@ -1494,12 +1518,13 @@
                                     <option value="10">Partnership Firm</option>
                                     <option value="11">Others</option>            
                                 </select>
+                                <label class="label-float">Organization Category</label>
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="organizationCategory">Select Organization Category</span>
                         
                             </div>
-                            <div class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-block':'form-group d-none'">
-                                <select name="residenceType" class="form-control" id="residenceType" required>
-                                    <option value="" selected hidden>Residence Type</option>
+                            <div class="form-group d-none" [class]="formState.occupation != '1'?'form-group d-block':'form-group d-none'">
+                                <select name="residenceType" class="form-control" id="residenceType" [required]="formState.occupation == '1'?'false':'true'">
+                                    <option value="" selected hidden></option>
                                     <option value="28">Owned By Self/Spouse</option>
                                     <option value="29">Owned By Parent/Sibling</option>
                                     <option value="30">Rented - Staying Alone</option>
@@ -1512,27 +1537,30 @@
                                     <option value=53>Transfer Exisitng Home Loan</option>
                                     <option value=49>Repair Renovate your Home</option>
                                 </select>
+                                <label class="label-float">Residence Type</label>
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="residenceType">Select Residence type</span>
                         
                             </div>
-                            <div class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-block':'form-group d-none'">
-                                <select name="officeType" class="form-control" id="officeType" required>
-                                    <option value="" selected hidden>Office/Factory Type</option>
+                            <div class="form-group d-none" [class]="formState.occupation != '1'?'form-group d-block':'form-group d-none'">
+                                <select name="officeType" class="form-control" id="officeType" [required]="formState.occupation == '1'?'false':'true'">
+                                    <option value="" selected hidden></option>
                                     <option value="36">Owned</option>
                                     <option value="37">Rented</option>
                                 </select>
+                                <label class="label-float">Office/Factory Type</label>
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="officeType">Select Office type</span>
                         
                             </div>
                             <div class="form-group">
                                 <amp-autocomplete filter="substring" min-characters="0" src="json/cities.json" style="width:100%">
-                                    <input name="name" placeholder="Residence City" class="form-control" id="residenceCity" name="residenceCity" autocomplete="nope" required>
+                                    <input name="name"  class="form-control" id="residenceCity" name="residenceCity" autocomplete="nope" required>
                                 </amp-autocomplete>
+                                <label class="label-float">Residence City</label>
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="residenceCity">Select Residence City</span>
                             </div>
-                            <div class="form-group d-block"  [class]="formState.occupation == '1'?'form-group d-none':'form-group d-block'">
-                                <select name="nsBankAccount" class="form-control" id="nsBankAccount" required>
-                                    <option value="" selected hidden>Bank Account</option>
+                            <div class="form-group d-none"  [class]="formState.occupation != '1'?'form-group d-block':'form-group d-none'">
+                                <select name="nsBankAccount" class="form-control" id="nsBankAccount" [required]="formState.occupation == '1'?'false':'true'">
+                                    <option value="" selected  hidden></option>
                                     <option value="HDFC">HDFC</option>
                                     <option value="SBI">SBI</option>
                                     <option value="AXIS">AXIS</option>
@@ -1540,24 +1568,31 @@
                                     <option value="OTHER BANK">OTHER BANK</option>
                                
                                 </select>
+                                <label class="label-float">Bank Account</label>
+                        
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="nsBankAccount">Select Bank Account</span>
                         
                             </div>
                             
                             
                             <div class="form-group">
-                                <input type="text" class="form-control" id="nsmobileNumber" name="nsmobileNumber" placeholder="Mobile Number" maxlength="10" required pattern="[0-9]{10}"/>
+                                <input type="text" class="form-control" id="nsmobileNumber" name="nsmobileNumber"  maxlength="10" required pattern="[0-9]{10}"/>
+                                <label class="label-float">Mobile Number</label>
+                        
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="nsmobileNumber">Enter your mobile number </span>
                                 <span class="form-error" visible-when-invalid="patternMismatch" validation-for="nsmobileNumber">Enter 10 digits numbers only</span>
                             </div>
                          
                             <div class="form-group">
-                                <input type="email" class="form-control" id="emailId" name="emailId" placeholder="Email Id" required/>
+                                <input type="email" class="form-control" id="emailId" name="emailId" required/>
+                                <label class="label-float">Email Address</label>
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="emailId">Please enter your email address</span>
                                 <span class="form-error" visible-when-invalid="typeMismatch" validation-for="emailId"></span>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Full Name" required  pattern="\w+\s\w+"/>
+                                <input type="text" class="form-control" id="fullName" name="fullName" required  pattern="\w+\s\w+"/>
+                                <label class="label-float">Full Name</label>
+                        
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="fullName">Please enter your full name</span>
                                 <span class="form-error" visible-when-invalid="patternMismatch" validation-for="fullName"> Please enter your first and last name separated by a space (e.g. Jane Miller)</span>
                             </div>
