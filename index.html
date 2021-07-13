@@ -1475,10 +1475,11 @@
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="nsOccupation">Select Occupation</span>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="loanAmount"  name="loanAmount"  maxlength="10" required  pattern="\d+"/>
+                                <input type="number"  min="100000"  class="form-control" id="loanAmount"  name="loanAmount"  maxlength="10" required  pattern="\d+"/>
                                 <label class="label-float">Loan Amount</label>
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="loanAmount">Enter a loan amount</span>
                                 <span class="form-error" visible-when-invalid="patternMismatch" validation-for="loanAmount">Enter numbers only</span>
+                                <span class="form-error" visible-when-invalid="rangeUnderflow" validation-for="loanAmount">Loan Amount muse be greater than 100,000</span>
                             </div>
                             <div class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-none':'form-group d-block'">
                                 <select name="nsSalaryAccount" class="form-control" id="nsSalaryAccount" required="true" [required]="formState.occupation != '1'?'false':'true'">
@@ -1496,10 +1497,11 @@
                         
                             </div>
                             <div  class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-none':'form-group d-block'">
-                                <input type="text" class="form-control"  id="monthlyIncome" name="monthlyIncome"   maxlength="10"   pattern="\d+" required="true"   [required]="formState.occupation != '1'?'false':'true'"/>
+                                <input type="number" min="20000" class="form-control"  id="monthlyIncome" name="monthlyIncome"   maxlength="10"   pattern="\d+" required="true"   [required]="formState.occupation != '1'?'false':'true'"/>
                                 <label class="label-float">Net Monthly Income</label>
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="monthlyIncome">Enter monthly income</span>
                                 <span class="form-error" visible-when-invalid="patternMismatch" validation-for="monthlyIncome">Enter numbers only</span>
+                                <span class="form-error" visible-when-invalid="rangeUnderflow" validation-for="monthlyIncome">Monthly Income muse be greater than 20,000</span>
                             </div>
                             <div  class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-none':'form-group d-block'">
                                 <input type="text" class="form-control"  id="companyName" name="companyName" maxlength="10" required="true"  [required]="formState.occupation != '1'?'false':'true'"/>
@@ -1578,11 +1580,13 @@
                             
                             
                             <div class="form-group">
-                                <input type="text" class="form-control" id="nsmobileNumber" name="nsmobileNumber"  maxlength="10" required pattern="[0-9]{10}"/>
+                                <input type="text" class="form-control" id="nsmobileNumber" name="nsmobileNumber"  maxlength="10" required pattern="[6789][0-9]{9}"/>
                                 <label class="label-float">Mobile Number</label>
                         
-                                <span class="form-error" visible-when-invalid="valueMissing" validation-for="nsmobileNumber">Enter your mobile number </span>
-                                <span class="form-error" visible-when-invalid="patternMismatch" validation-for="nsmobileNumber">Enter 10 digits numbers only</span>
+                                <span class="form-error" visible-when-invalid="valueMissing" validation-for="nsmobileNumber">Enter 10 digit mobile number </span>
+                                <span class="form-error" visible-when-invalid="patternMismatch" validation-for="nsmobileNumber">
+                                    Phone Number must be of numbers and should start with 6,7,8 or 9
+                                </span>
                             </div>
                          
                             <div class="form-group">
