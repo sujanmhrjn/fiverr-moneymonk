@@ -147,7 +147,7 @@
        
 		<!-- MAIN CSS -->
         <style amp-custom>
-         /* === colors === */
+          /* === colors === */
             /* primary color = #4EC3B9
                 text color = #6D6D6D
             */
@@ -1019,11 +1019,13 @@
                 line-height: 1.4;
             }
             .form-error{
-                position:absolute;
+                /* position:absolute;
                 bottom:1px;
-                left:0;
-                font-size:10px;
+                left:0; */
+                margin-top:1px;
+                font-size:12px;
                 line-height: 1.2;
+                display:block
             }
             .radio-box{
                 display:flex;
@@ -1479,8 +1481,8 @@
                                 <span class="form-error" visible-when-invalid="patternMismatch" validation-for="loanAmount">Enter numbers only</span>
                             </div>
                             <div class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-none':'form-group d-block'">
-                                <select name="nsSalaryAccount" class="form-control" id="nsSalaryAccount" [required]="formState.occupation == '1'?'true':'false'">
-                                    <option selected hidden></option>   
+                                <select name="nsSalaryAccount" class="form-control" id="nsSalaryAccount" required="true" [required]="formState.occupation != '1'?'false':'true'">
+                                    <option value="" selected hidden></option>   
                                     <option value="HDFC">HDFC</option>
                                     <option value="SBI">SBI</option>
                                     <option value="AXIS">AXIS</option>
@@ -1494,19 +1496,19 @@
                         
                             </div>
                             <div  class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-none':'form-group d-block'">
-                                <input type="text" class="form-control"  id="monthlyIncome" name="monthlyIncome"   maxlength="10"   pattern="\d+" [required]="formState.occupation == '1'?'true':'false'"/>
+                                <input type="text" class="form-control"  id="monthlyIncome" name="monthlyIncome"   maxlength="10"   pattern="\d+" required="true"   [required]="formState.occupation != '1'?'false':'true'"/>
                                 <label class="label-float">Net Monthly Income</label>
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="monthlyIncome">Enter monthly income</span>
                                 <span class="form-error" visible-when-invalid="patternMismatch" validation-for="monthlyIncome">Enter numbers only</span>
                             </div>
                             <div  class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-none':'form-group d-block'">
-                                <input type="text" class="form-control"  id="companyName" name="companyName" maxlength="10"  [required]="formState.occupation == '1'?'true':'false'"/>
+                                <input type="text" class="form-control"  id="companyName" name="companyName" maxlength="10" required="true"  [required]="formState.occupation != '1'?'false':'true'"/>
                                 <label class="label-float">Company Name</label>
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="companyName">Enter Company name</span>
                             
                             </div>
                             <div  class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-none':'form-group d-block'">
-                                <select name="organizationCategory" class="form-control" id="organizationCategory" [required]="formState.occupation == '1'?'true':'false'">
+                                <select name="organizationCategory" class="form-control" id="organizationCategory" required="true"  [required]="formState.occupation != '1'?'false':'true'">
                                     <option value="" selected hidden></option>
                         
                                     <option value="4">Public Ltd</option>
@@ -1523,7 +1525,7 @@
                         
                             </div>
                             <div class="form-group d-none" [class]="formState.occupation != '1'?'form-group d-block':'form-group d-none'">
-                                <select name="residenceType" class="form-control" id="residenceType" [required]="formState.occupation == '1'?'false':'true'">
+                                <select name="residenceType" class="form-control" id="residenceType" required="true"  [required]="formState.occupation != '1'?'true':'false'">
                                     <option value="" selected hidden></option>
                                     <option value="28">Owned By Self/Spouse</option>
                                     <option value="29">Owned By Parent/Sibling</option>
@@ -1542,7 +1544,7 @@
                         
                             </div>
                             <div class="form-group d-none" [class]="formState.occupation != '1'?'form-group d-block':'form-group d-none'">
-                                <select name="officeType" class="form-control" id="officeType" [required]="formState.occupation == '1'?'false':'true'">
+                                <select name="officeType" class="form-control" id="officeType" required="true"  [required]="formState.occupation != '1'?'true':'false'">
                                     <option value="" selected hidden></option>
                                     <option value="36">Owned</option>
                                     <option value="37">Rented</option>
@@ -1559,7 +1561,7 @@
                                 <span class="form-error" visible-when-invalid="valueMissing" validation-for="residenceCity">Select Residence City</span>
                             </div>
                             <div class="form-group d-none"  [class]="formState.occupation != '1'?'form-group d-block':'form-group d-none'">
-                                <select name="nsBankAccount" class="form-control" id="nsBankAccount" [required]="formState.occupation == '1'?'false':'true'">
+                                <select name="nsBankAccount" class="form-control" id="nsBankAccount" required="true"  [required]="formState.occupation != '1'?'true':'false'">
                                     <option value="" selected  hidden></option>
                                     <option value="HDFC">HDFC</option>
                                     <option value="SBI">SBI</option>
