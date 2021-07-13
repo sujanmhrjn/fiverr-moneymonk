@@ -1443,13 +1443,14 @@
                          </amp-state>
                          <form  method="post" class="form" action-xhr="/"  id="form" target="_top" custom-validation-reporting="show-all-on-submit"  on="submit-success:form.clear">
                             <div class="form-group">
-                                <select class="form-control" name="occupation" on="change:AMP.setState({formState: {occupation: event.value}})">
-                                    <option value="">Occupation</option>
+                                <select class="form-control" name="occupation" id="nsOccupation" on="change:AMP.setState({formState: {occupation: event.value}})" required>
+                                    <option value="" selected hidden>Occupation</option>
                                     <option value="1">Salaried</option>
                                     <option value="60">Business Owner</option>
                                     <option value="61">CA / CS</option>
                                     <option value="62">Doctor</option>
                                 </select>
+                                <span class="form-error" visible-when-invalid="valueMissing" validation-for="loanAmount">Select a Occupation Type</span>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="loanAmount"  name="loanAmount" placeholder="Loan Amount"  maxlength="10" required  pattern="\d+"/>
@@ -1458,7 +1459,7 @@
                             </div>
                             <div class="form-group d-none" [class]="formState.occupation == '1'?'form-group d-block':'form-group d-none'">
                                 <select name="nsSalaryAccount" class="form-control" id="nsSalaryAccount" required>
-                                    <option value="" selected>Salary Account</option>
+                                    <option value="" selected hidden>Salary Account</option>
                                     <option value="HDFC">HDFC</option>
                                     <option value="SBI">SBI</option>
                                     <option value="AXIS">AXIS</option>
@@ -1482,7 +1483,7 @@
                             </div>
                             <div  class="form-group d-none" [class]="formState.occupation == '1'?'form-group d-block':'form-group d-none'">
                                 <select name="organizationCategory" class="form-control" id="organizationCategory" required>
-                                    <option value="" selected>Organization Category</option>
+                                    <option value="" selected hidden>Organization Category</option>
                         
                                     <option value="4">Public Ltd</option>
                                     <option value="5">Private Ltd</option>
@@ -1498,7 +1499,7 @@
                             </div>
                             <div class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-block':'form-group d-none'">
                                 <select name="residenceType" class="form-control" id="residenceType" required>
-                                    <option value="" selected>Residence Type</option>
+                                    <option value="" selected hidden>Residence Type</option>
                                     <option value="28">Owned By Self/Spouse</option>
                                     <option value="29">Owned By Parent/Sibling</option>
                                     <option value="30">Rented - Staying Alone</option>
@@ -1516,7 +1517,7 @@
                             </div>
                             <div class="form-group d-block" [class]="formState.occupation != '1'?'form-group d-block':'form-group d-none'">
                                 <select name="officeType" class="form-control" id="officeType" required>
-                                    <option value="" selected>Office/Factory Type</option>
+                                    <option value="" selected hidden>Office/Factory Type</option>
                                     <option value="36">Owned</option>
                                     <option value="37">Rented</option>
                                 </select>
@@ -1531,7 +1532,7 @@
                             </div>
                             <div class="form-group d-block"  [class]="formState.occupation == '1'?'form-group d-none':'form-group d-block'">
                                 <select name="nsBankAccount" class="form-control" id="nsBankAccount" required>
-                                    <option value="" selected>Bank Account</option>
+                                    <option value="" selected hidden>Bank Account</option>
                                     <option value="HDFC">HDFC</option>
                                     <option value="SBI">SBI</option>
                                     <option value="AXIS">AXIS</option>
